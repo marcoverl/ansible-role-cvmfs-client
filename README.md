@@ -1,4 +1,4 @@
-marcoverl.cvmfs_client
+marcoverl.cvmfs-client
 ======================
 
 Ansible role to install CernVM-FS Client with or w/o its containerd snapshotter
@@ -45,7 +45,7 @@ The role takes the default values but one of the repositories of INFN-Cloud
 ```yaml
   - hosts: localhost
     roles:
-      - role: marcoverl.cvmfs_client
+      - role: marcoverl.cvmfs-client
         repository_name: 'unpacked.infn.it'
 ```
 
@@ -54,7 +54,7 @@ Here it installs the client and the snapshotter.
 ```yaml
   - hosts: localhost
     roles:
-      - role: marcoverl.cvmfs_client
+      - role: marcoverl.cvmfs-client
         repository_name: 'unpacked.infn.it'
         snapshotter: true
 ```
@@ -64,7 +64,7 @@ Here it install the client and mounts the wenmr.egi.eu repository (all is precon
 ```yaml
   - hosts: localhost
     roles:
-      - role: marcoverl.cvmfs_client
+      - role: marcoverl.cvmfs-client
         repository_name: 'wenmr.egi.eu'
         cvmfs_preconfigured: true
 ```
@@ -73,7 +73,7 @@ Here install the client and the snapshotter, mounts the unpacked.cern.ch reposit
 ```yaml
 - hosts: localhost
   roles:
-    - role: marcoverl.cvmfs_client
+    - role: marcoverl.cvmfs-client
       repository_name: 'unpacked.cern.ch'
       cvmfs_preconfigured: true
       snapshotter: true
