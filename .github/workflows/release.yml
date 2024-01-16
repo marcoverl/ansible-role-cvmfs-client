@@ -21,4 +21,3 @@ jobs:
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
           git_branch: ${{ github.ref_name }}
-          args: "--role-name cvmfs_client"
