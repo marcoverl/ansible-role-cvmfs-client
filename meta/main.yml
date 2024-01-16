@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: cvmfs_client
+  namespace: marcoverl
   author: Marco Verlato
   description: Ansible role to setup a CernVM-FS client with or w/o its containerd snapshotter
   company: INFN
@@ -13,6 +14,8 @@ galaxy_info:
   - name: EL
     versions:
     - 7
+    - 8
+    - 9
   galaxy_tags:
     - cvmfs
     - filesystem
