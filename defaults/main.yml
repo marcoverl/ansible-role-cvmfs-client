@@ -1,7 +1,7 @@
 ---
 # defaults file for cvmfs-client
 
-server_url: 'rgw.cloud.infn.it:443/cvmfs/@fqrn@' 
+server_url: 'rgw.cloud.infn.it:443/cvmfs' 
 
 repository_name: 'unpacked.infn.it'
 
