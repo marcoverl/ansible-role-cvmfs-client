@@ -7,6 +7,7 @@
   register: p
   
 - include_tasks: client_install.yml
+  name: Installing client
   when: 
     - p.stat.isdir is not defined
     - repository_name != ""
@@ -14,12 +15,22 @@
 - command: 'cvmfs_config stat -v {{ repository_name}}'
   register: cvmfs_stat
   ignore_errors: yes
+  when: repository_name != ""
 
 - include_tasks: client_config.yml
-  when: cvmfs_stat.rc != 0
+  name: Configuring client
+  when:
+    - cvmfs_stat.rc != 0
+    - repository_name != ""
 
 - include_tasks: snapshotter_install.yml
-  when: snapshotter|bool
+  name: Installing snapshotter
+  when: 
+    - snapshotter|bool
+    - repository_name != ""
 
 - include_tasks: snapshotter_config.yml
-  when: snapshotter|bool
+  name: Configuring snapshotter
+  when: 
+    - snapshotter|bool
+    - repository_name != ""
