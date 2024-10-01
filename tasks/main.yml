@@ -7,7 +7,9 @@
   register: p
   
 - include_tasks: client_install.yml
-  when: p.stat.isdir is not defined
+  when: 
+    - p.stat.isdir is not defined
+    - repository_name != ""
 
 - command: 'cvmfs_config stat -v {{ repository_name}}'
   register: cvmfs_stat
