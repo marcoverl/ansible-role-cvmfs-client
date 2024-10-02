@@ -14,11 +14,7 @@ cvmfs_public_key: '{{ repository_name }}.pub'
 # Allow to mount cvmfs molumes with preconfigured files from cvmfs-config-default package
 cvmfs_preconfigured: false
 
-proxy_url: 'DIRECT'
-
-proxy_port: 80
-
-cvmfs_http_proxy: 'http://{{ proxy_url }}:{{ proxy_port }}'
+cvmfs_http_proxy: 'DIRECT'
 
 cvmfs_mountpoint: '/cvmfs'
 
