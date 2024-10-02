@@ -11,7 +11,7 @@ Python is required on host to run ansible.
 Variables
 ---------
 
-``server_url``: set cvmfs server url (e.g. ip address or domain, default: ``rgw.cloudveneto.it/cvmfswp6dc``).
+``server_url``: set cvmfs server url (e.g. ip address or domain, default: ``rgw.cloud.infn.it:443/cvmfs``).
 
 ``repository_name``: set cvmfs server repository name (default: ``unpacked.infn.it``).
 
@@ -23,11 +23,7 @@ Variables
 
 ``cvmfs_preconfigured``: allow to mount cvmfs volumes importing preconfigured file: works for cern.ch and egi.eu repos (default: ``false``)
 
-``proxy_url``: set proxy name (default: ``DIRECT``).
-
-``proxy_port``: set proxy port (default: ``80``).
-
-``cvmfs_http_proxy``: set proxy complete url (default: ``http://{{ proxy_url }}:{{ proxy_port }}``).
+``cvmfs_http_proxy``: set proxy complete url (default: ``DIRECT``).
 
 ``cvmfs_mountpoint``: set cvmfs mount point (default: ``/cvmfs``). If set to ``/cvmfs`` the role will use ``cvmfs_config probe`` to mount the repository.
 
@@ -77,7 +73,6 @@ Here install the client and the snapshotter, mounts the unpacked.cern.ch reposit
       repository_name: 'unpacked.cern.ch'
       cvmfs_preconfigured: true
       snapshotter: true
-      proxy_url: 'squid'
       cvmfs_http_proxy: "'http://squid-01.pd.infn.it:3128|http://squid-02.pd.infn.it:3128'"
 ```
 
