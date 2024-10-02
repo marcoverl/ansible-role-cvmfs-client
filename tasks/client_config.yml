@@ -17,17 +17,17 @@
   with_items:
   - { from: '^(.*)CVMFS_USER(.*)$', to: 'CVMFS_USER={{ ansible_facts.getent_passwd.keys() | first }}' }
 
-- name: Build repository config.d file
-  template:
-    src: repository.conf.j2
-    dest: '/etc/cvmfs/config.d/{{ repository_name }}.conf'
-  when: not cvmfs_preconfigured|bool
-
 - name: Copy preconfigured config.d file
   template:
     src: cern-egi-repos.conf.j2
     dest: '/etc/cvmfs/config.d/{{ repository_name }}.conf'
-  when: cvmfs_preconfigured|bool
+
+- name: Build repository config.d file
+  template:
+    src: repository.conf.j2
+    dest: '/etc/cvmfs/config.d/{{ repository_name }}.conf'
+  loop: "{{ repos|default([]) }}"
+  when: item == repository_name
 
 - name: Create public key path
   file:
@@ -38,7 +38,8 @@
   copy:
     src: '{{ repository_name }}.pub'
     dest: '{{cvmfs_public_key_path}}/{{cvmfs_public_key}}'
-  when: not cvmfs_preconfigured|bool
+  loop: "{{ repos|default([]) }}"
+  when: item == repository_name
 
 - name: '[VM] Restart autofs'
   service:
