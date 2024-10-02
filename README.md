@@ -21,8 +21,6 @@ Variables
 
 ``cvmfs_public_key``: set cvfms public key, usually `<repository_name.pub>` (default: ``{{ repository_name }}.pub``).
 
-``cvmfs_preconfigured``: allow to mount cvmfs volumes importing preconfigured file: works for cern.ch and egi.eu repos (default: ``false``)
-
 ``cvmfs_http_proxy``: set proxy complete url (default: ``DIRECT``).
 
 ``cvmfs_mountpoint``: set cvmfs mount point (default: ``/cvmfs``). If set to ``/cvmfs`` the role will use ``cvmfs_config probe`` to mount the repository.
@@ -32,6 +30,12 @@ Variables
 ``snapshotter``: install and configure the cvmfs-snapshotter (default: ``false``).
 
 ``snapshotter_path``: path where to install the cvmfs-snapshotter software (default: ``/usr/local/share``).
+
+Static parameters (in vars/main.yml)
+---------
+
+``snapshotter_version``:  <commit of last snapshotter version>
+``repos``: list of cvmfs repositories that can be mounted (i.e. have the public key stored in files subdir). The ones that are not listed here wil bemounted assuming that they are preconfigured in the cvmfs-config-default package, as e.g. for cern.ch and egi.eu repositories. 
 
 Example Playbook
 ----------------
@@ -62,7 +66,6 @@ Here it install the client and mounts the wenmr.egi.eu repository (all is precon
     roles:
       - role: marcoverl.cvmfs-client
         repository_name: 'wenmr.egi.eu'
-        cvmfs_preconfigured: true
 ```
 Here install the client and the snapshotter, mounts the unpacked.cern.ch repository and use squid proxies 
 
@@ -71,7 +74,6 @@ Here install the client and the snapshotter, mounts the unpacked.cern.ch reposit
   roles:
     - role: marcoverl.cvmfs-client
       repository_name: 'unpacked.cern.ch'
-      cvmfs_preconfigured: true
       snapshotter: true
       cvmfs_http_proxy: "'http://squid-01.pd.infn.it:3128|http://squid-02.pd.infn.it:3128'"
 ```
