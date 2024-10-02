@@ -14,6 +14,7 @@
     - p.stat.isdir is not defined
 
 - command: 'cvmfs_config stat -v {{ repository_name}}'
+  name: Pre-configuring client
   register: cvmfs_stat
   ignore_errors: yes
   when: repository_name != ""
