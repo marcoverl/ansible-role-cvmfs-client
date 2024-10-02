@@ -36,7 +36,7 @@ Static parameters (in vars/main.yml)
 
 ``snapshotter_version``:  commit of last snapshotter version
 
-``repos``: list of cvmfs repositories that can be mounted (i.e. have the public key stored in files subdir). The ones that are not listed here wil bemounted assuming that they are preconfigured in the cvmfs-config-default package, as e.g. for cern.ch and egi.eu repositories. 
+``repos``: list of cvmfs repositories that can be mounted (i.e. have the public key stored in files subdir). The ones that are not listed here will be mounted assuming that they are preconfigured in the cvmfs-config-default package, as e.g. for cern.ch and egi.eu repositories. 
 
 Example Playbook
 ----------------
