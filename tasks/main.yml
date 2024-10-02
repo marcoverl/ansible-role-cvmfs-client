@@ -1,7 +1,7 @@
 ---
 # tasks file for cvmfs-client
 
-- name: Skip installation of cvmfs if /cvmfs path exists
+- name: Skip installation of cvmfs if repository_name is empty or /cvmfs path exists
   stat:
     path: /cvmfs
   register: p
