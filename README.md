@@ -31,12 +31,12 @@ Variables
 
 ``snapshotter_path``: path where to install the cvmfs-snapshotter software (default: ``/usr/local/share``).
 
-Static parameters (in vars/main.yml)
+Other variables (in vars/main.yml)
 ---------
 
 ``snapshotter_version``:  commit of last snapshotter version
 
-``repos``: list of cvmfs repositories that can be mounted (i.e. have the public key stored in files subdir). The ones that are not listed here will be mounted assuming that they are preconfigured in the cvmfs-config-default package, as e.g. for cern.ch and egi.eu repositories. 
+``repos``: list of cvmfs repositories that have the public key stored in the ``files`` subdir). The ones that are not listed here will be mounted assuming that they are preconfigured in the cvmfs-config-default package, as e.g. for *.cern.ch and *.egi.eu repositories. 
 
 Example Playbook
 ----------------
