@@ -25,7 +25,7 @@ Default variables
 
 ``cvmfs_mountpoint``: set cvmfs mount point (default: ``/cvmfs``). If set to ``/cvmfs`` the role will use ``cvmfs_config probe`` to mount the repository.
 
-``add_fstab_entry``: add fstab entry to automatically mount the repository (default: ``true``).
+``add_fstab_entry``: add fstab entry to automatically mount the repository, if the mountpoint is not set to ``/cvmfs`` (default: ``true``).
 
 ``snapshotter``: install and configure the cvmfs-snapshotter (default: ``false``).
 
