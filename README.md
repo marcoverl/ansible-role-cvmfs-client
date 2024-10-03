@@ -8,7 +8,7 @@ Requirements
 
 Python is required on host to run ansible.
 
-Variables
+Default variables
 ---------
 
 ``server_url``: set cvmfs server url (e.g. ip address or domain, default: ``rgw.cloud.infn.it:443/cvmfs``).
