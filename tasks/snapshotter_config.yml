@@ -7,15 +7,15 @@
 - name: Copy config files
   copy: src={{ item.src }} dest={{ item.dest }} remote_src=yes
   with_items:
-  - { src: '{{snapshotter_path}}/cvmfs/cvmfs-devel/snapshotter/script/config/etc/containerd-cvmfs-grpc/config.toml', dest: '/etc/containerd-cvmfs-grpc/config.toml' }
-  - { src: '{{snapshotter_path}}/cvmfs/cvmfs-devel/snapshotter/script/config/etc/systemd/system/cvmfs-snapshotter.service', dest: '/etc/systemd/system/cvmfs-snapshotter.service' }
+  - { src: '{{snapshotter_path}}/cvmfs-devel/snapshotter/script/config/etc/containerd-cvmfs-grpc/config.toml', dest: '/etc/containerd-cvmfs-grpc/config.toml' }
+  - { src: '{{snapshotter_path}}/cvmfs-devel/snapshotter/script/config/etc/systemd/system/cvmfs-snapshotter.service', dest: '/etc/systemd/system/cvmfs-snapshotter.service' }
   
 - name: Delete directories and go cache
   file:
     path: '{{snapshotter_path}}/{{item}}'
     state: absent
   with_items:
-  - cvmfs
+  - cvmfs-devel
   - nerdctl
 - command: /snap/bin/go clean -modcache
 
