@@ -17,7 +17,7 @@
   with_items:
   - cvmfs
   - nerdctl
-- command: go clean -modcache
+- command: /snap/bin/go clean -modcache
 
 - name: replace lines in containerd-cvmfs-grpc config.toml
   lineinfile: 
