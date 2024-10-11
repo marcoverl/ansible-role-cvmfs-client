@@ -1,7 +1,7 @@
 ---
 - name: Install other packages
   apt:
-    name: ['snapd', 'make', 'fuse3']
+    name: ['git', 'snapd', 'make', 'fuse3']
     state: latest 
     update_cache: yes 
     cache_valid_time: 3600
