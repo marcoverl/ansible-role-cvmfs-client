@@ -6,6 +6,9 @@ galaxy_info:
   license: Apache
   min_ansible_version: 2.0
   platforms:
+  - name: Debian
+    versions:
+    - 12
   - name: Ubuntu
     versions:
     - jammy

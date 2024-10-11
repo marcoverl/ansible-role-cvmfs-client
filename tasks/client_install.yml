@@ -15,8 +15,8 @@
     state: present
   when: ansible_facts.getent_passwd is not defined
     
-- include_tasks: client_install_centos.yml
+- include_tasks: client_install_redhat.yml
   when: ansible_os_family == "RedHat"
 
-- include_tasks: client_install_ubuntu.yml
+- include_tasks: client_install_debian.yml
   when: ansible_os_family == "Debian"
