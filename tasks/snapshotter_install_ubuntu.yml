@@ -24,6 +24,7 @@
 - name: Build snapshotter 
   command: make chdir={{snapshotter_path}}/cvmfs/snapshotter
   environment: 
+    PATH: /snap/bin:{{ ansible_env.PATH }}
     PREFIX: "/usr/local/bin/"
     VERSION: "{{snapshotter_version}}"
     
