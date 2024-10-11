@@ -30,4 +30,6 @@
     
 - name: Build nerdctl
   command: make chdir={{snapshotter_path}}/nerdctl
+  environment: 
+    PATH: /snap/bin:{{ ansible_env.PATH }}
 - command: make install chdir={{snapshotter_path}}/nerdctl
