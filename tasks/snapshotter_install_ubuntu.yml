@@ -1,13 +1,13 @@
 ---
-- name: Install go with snap
-  snap: name=go classic=yes
-  
 - name: Install other packages
   apt:
-    name: ['make', 'fuse3']
+    name: ['snapd', 'make', 'fuse3']
     state: latest 
     update_cache: yes 
     cache_valid_time: 3600
+
+- name: Install go with snap
+  snap: name=go classic=yes
     
 - name: Creates directories for git clone
   file: path={{ item.path}} state=directory
