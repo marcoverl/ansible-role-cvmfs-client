@@ -1,7 +1,7 @@
 ---
 - name: Install go and other packages with yum
   yum:
-    name: ['go', 'make', 'fuse3']
+    name: ['git', 'go', 'make', 'fuse3']
     update_cache: yes
     state: present
     
