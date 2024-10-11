@@ -20,7 +20,7 @@
   with_items:
     - { repo: "https://github.com/containerd/nerdctl", dest: "{{snapshotter_path}}/nerdctl", version: "v1.7.7", depth: 1 }
 
-- name: Unarchive a file that needs to be downloaded (added in 2.0)
+- name: Download and unarchive cvmfs-devel
   unarchive:
     src: https://github.com/cvmfs/cvmfs/archive/refs/heads/devel.zip
     dest: "{{snapshotter_path}}/cvmfs"
