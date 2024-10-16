@@ -18,7 +18,7 @@
 - name: Check if nerdctl is already installed
   stat:
     path: /usr/locsl/bin/nerdctl
-    register: ndctl
+  register: ndctl
     
 - name: Clone git repositories
   git: repo={{ item.repo }} dest={{ item.dest }} clone=yes version={{item.version}}
