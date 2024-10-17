@@ -17,7 +17,7 @@
 
 - name: Check if nerdctl is already installed
   stat:
-    path: /usr/locsl/bin/nerdctl
+    path: /usr/local/bin/nerdctl
   register: ndctl
     
 - name: Clone git repositories
